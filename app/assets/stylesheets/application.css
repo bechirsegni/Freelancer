@@ -10,6 +10,18 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ *= require pace-theme-flash.css
+ *= require bootstrap.min
+ *= require font-awesome
+ *= require jquery.scrollbar.css
+ *= require select2.css
+ *= require switchery.min
+ *= require nv.d3.min.css
+ *= require mapplic
+ *= require rickshaw.min.css
+ *= require datepicker3
+ *= require MetroJs.css
+ *= require pages-icons
+ *= require pages.css
  *= require_self
  */

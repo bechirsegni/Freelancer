@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+    <meta charset="utf-8"/>
     <title>Freelancer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no"/>
+
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="fixed-header pace-done menu-behind">
+    <%= render("layouts/common/sidebar")%>
+    <%= render("layouts/common/quickview")%>
+    <div class="page-container ">
+      <%= render("layouts/common/head")%>
+
+      <%= yield %>
+    </div>
+    <%= render("layouts/common/search")%>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </body>
 </html>

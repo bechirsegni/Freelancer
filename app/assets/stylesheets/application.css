@@ -12,7 +12,7 @@
  *
  *= require pace-theme-flash.css
  *= require bootstrap.min
- *= require font-awesome
+ *= require _font-awesome
  *= require jquery.scrollbar.css
  *= require select2.css
  *= require switchery.min

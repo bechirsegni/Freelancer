@@ -13,8 +13,9 @@
 //= require pace.min
 //= require jquery
 //= require jquery_ujs
-//= require modernizr.custom
 //= require jquery-1.11.1.min
+//= require modernizr.custom
+//= require jquery-ui.min.js
 //= require bootstrap.min
 //= require jquery-easy
 //= require jquery.unveil.min

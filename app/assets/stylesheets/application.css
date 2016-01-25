@@ -16,12 +16,17 @@
  *= require jquery.scrollbar.css
  *= require select2.css
  *= require switchery.min
- *= require nv.d3.min.css
- *= require mapplic
- *= require rickshaw.min.css
+ *= require bootstrap3-wysihtml5.min.css
+ *= require bootstrap-tagsinput.css
+ *= require dropzone
  *= require datepicker3
- *= require MetroJs.css
+ *= require summernote
+ *= require daterangepicker-bs3
+ *= require bootstrap-timepicker.min
  *= require pages-icons
  *= require pages.css
+ *= require mapplic
+ *= require rickshaw.min.css
+ *= require MetroJs.css
  *= require_self
  */

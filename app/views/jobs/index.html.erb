@@ -1,0 +1,10 @@
+<h1>JOBS </h1>
+
+<%@jobs.each do |job|%>
+    <%=job.title%><br>
+    <%=job.description%><br>
+    <%=job.location%><br>
+    <%=job.duration%><br>
+    <%=job.price%><br>
+   <h1><%=job.category.name%></h1>
+<%end%>

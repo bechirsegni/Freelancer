@@ -18,8 +18,9 @@
       <%= render("layouts/common/head")%>
 
       <%= yield %>
+      <%= render("layouts/common/footer")%>
+      <%= render("layouts/common/search")%>
     </div>
-    <%= render("layouts/common/search")%>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </body>
 </html>

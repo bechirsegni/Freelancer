@@ -18,5 +18,7 @@ group :development do
   gem 'spring'
   gem 'quiet_assets', '~> 1.1'
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
+  gem 'guard-livereload', '~> 2.4', require: false
+  gem 'rack-livereload'
 end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

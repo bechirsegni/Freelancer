@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :categories
+  devise_for :users
   resources :jobs
   root to: 'static#dashboard'
   # Serve websocket cable requests in-process

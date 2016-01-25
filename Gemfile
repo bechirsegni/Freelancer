@@ -9,7 +9,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'puma'
 gem 'font-awesome-sass-rails'
-
+gem 'devise', github: 'plataformatec/devise'
 group :development, :test do
   gem 'byebug'
 end

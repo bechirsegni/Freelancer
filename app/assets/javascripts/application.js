@@ -11,11 +11,10 @@
 // about supported directives.
 //
 //= require pace.min
-//= require jquery-1.11.1.min.js
 //= require jquery
 //= require jquery_ujs
 //= require modernizr.custom
-//= require jquery-ui.min.js
+//= require jquery-ui.min
 //= require bootstrap.min
 //= require jquery-easy
 //= require jquery.unveil.min
@@ -25,22 +24,7 @@
 //= require jquery.scrollbar.min
 //= require select2.min
 //= require classie
-//= require switchery.min
-//= require bootstrap3-wysihtml5.all.min
-//= require autoNumeric
-//= require dropzone.min
-//= require bootstrap-tagsinput.min
-//= require jquery.inputmask.min
-//= require jquery.bootstrap.wizard.min
-//= require jquery.validate.min
-//= require bootstrap-datepicker
-//= require summernote.min
-//= require moment.min
-//= require daterangepicker
-//= require bootstrap-timepicker.min
 //= require pages.min
-//= require form_elements
 //= require scripts
 //= require demo
-//= require dashboard
 //= require turbolinks

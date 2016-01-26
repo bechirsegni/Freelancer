@@ -1,19 +1,21 @@
 class JobsController < ApplicationController
   before_filter :set_job ,only:[:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
+  before_filter :correct_user, only: [:edit, :update, :destroy]
 
   def index
     @jobs = Job.all
   end
 
   def new
-    @job = Job.new
+    @job = current_user.jobs.build
   end
 
   def show
   end
 
   def create
-    @job = Job.create(jobs_params)
+    @job = current_user.jobs.build(jobs_params)
       if @job.save!
         redirect_to @job
       else
@@ -49,5 +51,10 @@ class JobsController < ApplicationController
 
   def jobs_params
     params.require(:job).permit(:title,:description,:price,:duration,:location,:category_id)
+  end
+
+  def correct_user
+    @job = current_user.jobs.find_by_id(params[:id])
+    redirect_to jobs_path, notice: "Not authorized to edit this job" if @job.nil?
   end
 end

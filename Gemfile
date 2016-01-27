@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'puma'
 gem 'font-awesome-sass-rails'
 gem 'devise', github: 'plataformatec/devise'
+gem 'paperclip', '~> 4.3'
 group :development, :test do
   gem 'byebug'
 end

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :jobs
+  resources :showcases
   root to: 'static#dashboard'
 
   devise_for :users

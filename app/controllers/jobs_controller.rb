@@ -50,7 +50,7 @@ class JobsController < ApplicationController
   end
 
   def jobs_params
-    params.require(:job).permit(:title,:description,:price,:duration,:location,:category_id)
+    params.require(:job).permit(:title,:description,:price,:duration,:location,:category_id,:document)
   end
 
   def correct_user

@@ -8,6 +8,7 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= yield :css  %>
   </head>
 
   <body class="fixed-header horizontal-menu">
@@ -19,5 +20,6 @@
       </div>
     <%= render("layouts/common/search")%>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= yield :js%>
   </body>
 </html>

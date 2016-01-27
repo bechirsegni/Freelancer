@@ -15,6 +15,9 @@
     <%=f.label :location%>
     <%=f.text_field :location%>
 
+    <%=f.label :document%>
+    <%=f.file_field :document %>
+
     <%= f.collection_select(:category_id, Category.all, :id, :name, {:prompt => 'Choose a category'},
                             {class: "form-control"})%>
     <%=f.submit 'Submit'%>

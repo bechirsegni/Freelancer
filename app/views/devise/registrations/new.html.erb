@@ -1,33 +1,3 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
-
 <div class="register-container full-height sm-p-t-30">
   <div class="container-sm-height full-height">
     <div class="row row-sm-height">
@@ -39,7 +9,8 @@
             Create a pages account. If you have a facebook account, log into it for this process. Sign in with <a href="#" class="text-info">Facebook</a> or <a href="#" class="text-info">Google</a>
           </small>
         </p>
-        <form id="form-register" class="p-t-15" role="form" action="http://pages.revox.io/dashboard/2.1.0/html/index.html">
+        <%= form_for(resource, as: resource_name,id:'form-register', url: registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group form-group-default">
@@ -57,24 +28,24 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group form-group-default">
-                <label>Pages User name</label>
-                <input type="text" name="uname" placeholder="yourname.pages.com (this can be changed later)" class="form-control" required>
+                <%= f.label :email %>
+                <%= f.email_field :email, autofocus: true,class:'form-control',placeholder:'Example@email.com' %>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group form-group-default">
-                <label>Password</label>
-                <input type="password" name="pass" placeholder="Minimum of 4 Charactors" class="form-control" required>
+                <%= f.label :password %>
+                <%= f.password_field :password, autocomplete: "off" ,placeholder:'Minimum of 8 Charactors',class:'form-control'%>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group form-group-default">
-                <label>Email</label>
-                <input type="email" name="email" placeholder="We will send loging details to you" class="form-control" required>
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, autocomplete: "off" ,placeholder:'Minimum of 8 Charactors',class:'form-control'%>
               </div>
             </div>
           </div>
@@ -86,8 +57,9 @@
               <a href="#" class="text-info small">Help? Contact Support</a>
             </div>
           </div>
-          <button class="btn btn-primary btn-cons m-t-10" type="submit">Create a new account</button>
-        </form>
+            <%= f.submit 'Create a new account',class:'btn btn-primary btn-cons m-t-10' %>
+        <% end %>
+        <%= render "devise/shared/links" %>
       </div>
     </div>
   </div>
@@ -101,140 +73,4 @@
       <p class="hinted-text small inline ">No part of this website or any of its contents may be reproduced, copied, modified or adapted, without the prior written consent of the author, unless otherwise indicated for stand-alone materials.</p>
     </div>
   </div>
-</div>
-
-<div class="overlay hide" data-pages="search">
-
-  <div class="overlay-content has-results m-t-20">
-
-    <div class="container-fluid">
-
-      <img class="overlay-brand" src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
-
-
-      <a href="#" class="close-icon-light overlay-close text-black fs-16">
-        <i class="pg-close"></i>
-      </a>
-
-    </div>
-
-    <div class="container-fluid">
-
-      <input id="overlay-search" class="no-border overlay-search bg-transparent" placeholder="Search..." autocomplete="off" spellcheck="false">
-      <br>
-      <div class="inline-block">
-        <div class="checkbox right">
-          <input id="checkboxn" type="checkbox" value="1" checked="checked">
-          <label for="checkboxn"><i class="fa fa-search"></i> Search within page</label>
-        </div>
-      </div>
-      <div class="inline-block m-l-10">
-        <p class="fs-13">Press enter to search</p>
-      </div>
-
-    </div>
-
-    <div class="container-fluid">
-<span>
-<strong>suggestions :</strong>
-</span>
-      <span id="overlay-suggestions"></span>
-      <br>
-      <div class="search-results m-t-40">
-        <p class="bold">Pages Search Results</p>
-        <div class="row">
-          <div class="col-md-6">
-
-            <div class="">
-
-              <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
-                <div>
-                  <img width="50" height="50" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
-                </div>
-              </div>
-
-              <div class="p-l-10 inline p-t-5">
-                <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> on pages</h5>
-                <p class="hint-text">via john smith</p>
-              </div>
-            </div>
-
-
-            <div class="">
-
-              <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
-                <div>T</div>
-              </div>
-
-              <div class="p-l-10 inline p-t-5">
-                <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> related topics</h5>
-                <p class="hint-text">via pages</p>
-              </div>
-            </div>
-
-
-            <div class="">
-
-              <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
-                <div><i class="fa fa-headphones large-text "></i>
-                </div>
-              </div>
-
-              <div class="p-l-10 inline p-t-5">
-                <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> music</h5>
-                <p class="hint-text">via pagesmix</p>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-6">
-
-            <div class="">
-
-              <div class="thumbnail-wrapper d48 circular bg-info text-white inline m-t-10">
-                <div><i class="fa fa-facebook large-text "></i>
-                </div>
-              </div>
-
-              <div class="p-l-10 inline p-t-5">
-                <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> on facebook</h5>
-                <p class="hint-text">via facebook</p>
-              </div>
-            </div>
-
-
-            <div class="">
-
-              <div class="thumbnail-wrapper d48 circular bg-complete text-white inline m-t-10">
-                <div><i class="fa fa-twitter large-text "></i>
-                </div>
-              </div>
-
-              <div class="p-l-10 inline p-t-5">
-                <h5 class="m-b-5">Tweats on<span class="semi-bold result-name"> ice cream</span></h5>
-                <p class="hint-text">via twitter</p>
-              </div>
-            </div>
-
-
-            <div class="">
-
-              <div class="thumbnail-wrapper d48 circular text-white bg-danger inline m-t-10">
-                <div><i class="fa fa-google-plus large-text "></i>
-                </div>
-              </div>
-
-              <div class="p-l-10 inline p-t-5">
-                <h5 class="m-b-5">Circles on<span class="semi-bold result-name"> ice cream</span></h5>
-                <p class="hint-text">via google plus</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
 </div>

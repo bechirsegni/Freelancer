@@ -1,3 +1,5 @@
+<%= provide(:title, 'Showcase')%>
+
 <%= content_for :css do%>
 <%= stylesheet_link_tag 'MetroJs'%>
 <%= stylesheet_link_tag 'dialog'%>
@@ -5,10 +7,8 @@
 <%= stylesheet_link_tag 'owl.carousel'%>
 <%= stylesheet_link_tag 'jquery.nouislider'%>
 <%end%>
-
-  <div class="page-content-wrapper ">
-
-    <div class="content ">
+<div class="page-content-wrapper ">
+<%= render 'head'%>
       <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
 
         <div class="gallery">
@@ -23,7 +23,7 @@
               </li>
             </ul>
           </div>
-          <%=@showcases.each do |showcase|%>
+          <% @showcases.each do |showcase|%>
           <div class="gallery-item" data-width="1" data-height="1">
 
             <%=image_tag showcase.photo.url , class:'image-responsive-height'%>
@@ -193,7 +193,7 @@
         </div>
       </div>
     </div>
-  </div>
+
 
 
 <%= content_for :js do%>

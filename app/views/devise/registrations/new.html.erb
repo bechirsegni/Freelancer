@@ -14,14 +14,14 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group form-group-default">
-                <label>First Name</label>
-                <input type="text" name="fname" placeholder="John" class="form-control" required>
+                <%= f.label :name %>
+                <%= f.text_field :name, placeholder:'Name',class:'form-control'%>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group form-group-default">
-                <label>Last Names</label>
-                <input type="text" name="lname" placeholder="Smith" class="form-control" required>
+                <%= f.label :username %>
+                <%= f.text_field :username, placeholder:'Username',class:'form-control'%>
               </div>
             </div>
           </div>

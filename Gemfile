@@ -11,6 +11,9 @@ gem 'puma'
 gem 'font-awesome-sass-rails'
 gem 'devise', github: 'plataformatec/devise'
 gem 'paperclip', '~> 4.3'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-linkedin', '~> 0.2.0'
 group :development, :test do
   gem 'byebug'
 end

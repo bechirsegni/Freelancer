@@ -46,40 +46,6 @@
               <span class="bubble"></span>
             </a>
 
-            <div class="dropdown-menu notification-toggle" role="menu" aria-labelledby="notification-center">
-
-              <% current_user.jobs.each do |job|%>
-              <div class="notification-panel">
-                <div class="notification-body scrollable">
-                  <div class="notification-item unread clearfix">
-                    <div class="heading">
-                      <div class="thumbnail-wrapper d24 circular b-white m-r-5 b-a b-white m-t-10 m-r-10">
-                        <img width="30" height="30" data-src-retina="assets/img/profiles/1x.jpg" data-src="assets/img/profiles/1.jpg" alt="" src="assets/img/profiles/1.jpg">
-                      </div>
-                        <%=link_to class:'text-complete pull-left' do %>
-                            <span class="bold"><%=truncate(job.title, length:10)%></span>
-                          <%end%>
-                    </div>
-                  <%end%>
-
-                    <div class="option" data-toggle="tooltip" data-placement="left" title="mark as read">
-                      <a href="#" class="mark"></a>
-                    </div>
-
-                  </div>
-                </div>
-
-
-                <div class="notification-footer text-center">
-                  <a href="#" class="">Read all notifications</a>
-                  <a data-toggle="refresh" class="portlet-refresh text-black pull-right" href="#">
-                    <i class="pg-refresh_new"></i>
-                  </a>
-                </div>
-
-              </div>
-
-            </div>
 
           </div>
         </li>
@@ -102,7 +68,7 @@
 
     <div class="visible-lg visible-md m-t-10">
       <div class="pull-left p-r-10 p-t-10 fs-16 font-heading">
-        <span class="semi-bold">David</span> <span class="text-master">Nest</span>
+        <span class="text-master"><%= current_user.name%></span>
       </div>
       <div class="dropdown pull-right">
         <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -1,25 +1,74 @@
-<%= form_for @job, :multipart => true do|f| %>
-    <%=f.label :title%>
-    <%=f.text_field :title%>
+<%= provide(:title,'Add New Project') %>
+<%= content_for :css do %>
+    <%= stylesheet_link_tag 'dropzone'%>
+<%end%>
 
-    <%=f.label :description%>
-    <%=f.text_area :description%>
+<div class="col-md-6">
 
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">
+        Option #one
+      </div>
+    </div>
+    <div class="panel-body">
+      <h5>
+        Pages default style
+      </h5>
+      <%= form_for @job, :multipart => true do|f| %>
+          <%= f.collection_select(:category_id, Category.all, :id, :name, {:prompt => 'Choose a category'},
+                                  {class: "form-control"})%>
+        <div class="form-group form-group-default required ">
+          <%=f.label :title%>
+          <%=f.text_field :title,class:'form-control'%>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group form-group-default required">
+              <%=f.label :description%>
+              <%=f.text_area :description, class:'form-control', required: true%>
+            </div>
+          </div>
+      </div>
+          <div class="dropzone no-margin dz-clickable dz-default dz-message">
+            <%=f.file_field :document, class:'dz-default dz-message' %>
+            <span>Drop files here to upload</span>
+          </div>
+    </div>
+  </div>
+</div>
 
-    <%=f.label :price%>
-    <%=f.text_field :price%>
+<div class="col-md-6">
 
-    <%=f.label :duration%>
-    <%=f.text_field :duration%>
-
-    <%=f.label :location%>
-    <%=f.text_field :location%>
-
-    <%=f.label :document%>
-    <%=f.file_field :document %>
-
-    <%= f.collection_select(:category_id, Category.all, :id, :name, {:prompt => 'Choose a category'},
-                            {class: "form-control"})%>
-    <%=f.submit 'Submit'%>
-
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">
+        Option #one
+      </div>
+    </div>
+    <div class="panel-body">
+      <h5>
+        Pages default style
+      </h5>
+      <div class="form-group form-group-default input-group">
+        <%=f.label :price%>
+        <%=f.text_field :price, class:'form-control'%>
+        <span class="input-group-addon">Dinar</span>
+      </div>
+    <div class="form-group form-group-default input-group">
+      <%=f.label :duration%>
+      <%=f.text_field :duration, class:'form-control'%>
+      <span class="input-group-addon">Days</span>
+    </div>
+    <div class="form-group  form-group-default required">
+      <%=f.label :location%>
+      <%=f.text_field :location, class:'form-control'%>
+    </div>
+      <%=f.submit 'Submit',class:'btn btn-success'%>
+    </div>
+  </div>
+</div>
+<%end%>
+<%= content_for :js do %>
+   <%= javascript_include_tag 'dropzone.min'%>
 <%end%>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :showcases
   root to: 'static#dashboard'
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   devise_scope :user do
     get 'login', :to => 'devise/sessions#new'
     post 'login', :to => 'devise/sessions#new'

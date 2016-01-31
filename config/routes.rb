@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :jobs
+  resources :jobs  do
+    resources :bids
+  end
   resources :showcases
   resources :articles
   resources :users, :only => [:show]

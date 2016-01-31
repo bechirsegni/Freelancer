@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 1
+  time: 1
+  Proposal: MyText
+  user_id: 1
+  job_id: 1
+
+two:
+  price: 1
+  time: 1
+  Proposal: MyText
+  user_id: 1
+  job_id: 1

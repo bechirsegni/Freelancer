@@ -14,6 +14,8 @@ gem 'paperclip', '~> 4.3'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin', '~> 0.2.0'
+gem 'mailboxer'
+gem 'will_paginate'
 group :development, :test do
   gem 'byebug'
 end

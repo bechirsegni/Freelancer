@@ -2,9 +2,10 @@ Rails.application.routes.draw do
 
   resources :jobs
   resources :showcases
+  resources :articles
+  resources :users, :only => [:show]
   root to: 'static#dashboard'
-
-  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+    devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   devise_scope :user do
     get 'login', :to => 'devise/sessions#new'
     post 'login', :to => 'devise/sessions#new'

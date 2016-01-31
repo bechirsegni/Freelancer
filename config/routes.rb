@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     get 'account', to: 'devise/registrations#edit'
   end
 
+  resources :categories
+
   # Serve websocket cable requests in-process
   # mount ActionCable.server => '/cable'
 end

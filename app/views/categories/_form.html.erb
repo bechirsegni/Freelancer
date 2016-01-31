@@ -1,0 +1,8 @@
+<%= form_for @category do |f| %>
+
+    <%= f.text_field :name %>
+    <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :name, @category.category_id), :include_blank => true %>
+
+    <%= f.submit %>
+
+<% end %>

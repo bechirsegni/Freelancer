@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   end
   resources :showcases
   resources :articles
-  resources :users, :only => [:show]
   root to: 'static#dashboard'
     devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   devise_scope :user do

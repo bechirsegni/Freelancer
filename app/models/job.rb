@@ -4,10 +4,10 @@ class Job < ApplicationRecord
 
 
   belongs_to :category
-  belongs_to :user,dependent: :destroy
+  belongs_to :user
   has_many   :bids
 
-  has_many :taggings
+  has_many :taggings , :dependent => :destroy
   has_many :tags, through: :taggings
 
   def self.tagged_with(name)

@@ -5,5 +5,7 @@
 <%=@job.location%>
 <%=@job.duration%>
 
+<%= link_to 'Destroy', @job , method: :delete, data: { confirm: 'Are you sure?' } %>
+
 <%= render 'bids/form'%>
 <%= render 'bids/bids'%>

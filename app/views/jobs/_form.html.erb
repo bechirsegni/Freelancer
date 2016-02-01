@@ -30,6 +30,12 @@
             </div>
           </div>
       </div>
+
+          <div class="field">
+            <%= f.label :tag_list, "Tags (separated by commas)" %><br />
+            <%= f.text_field :tag_list %>
+          </div>
+
           <div class="dropzone no-margin dz-clickable dz-default dz-message">
             <%=f.file_field :document, class:'dz-default dz-message' %>
             <span>Drop files here to upload</span>

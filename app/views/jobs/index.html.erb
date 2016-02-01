@@ -4,7 +4,7 @@
   <div class="content ">
     <div class="container-fluid container-fixed-lg">
       <%@jobs.each do |job|%>
-        <div class="panel-body">
+          <div class="panel-body">
           <div class="col-md-12 sm-no-padding">
             <div class="panel panel-transparent" style="margin-bottom: -50px">
               <div class="panel-body no-padding">
@@ -15,6 +15,7 @@
                         <span class="semi-bold"><%=job.title%></span></h3>
                       Skills:
                       <span class="label"><%=job.category.name%></span>
+                      Tags: <%= raw job.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
                     </div>
                     <div class="panel-controls">
                       <ul>

@@ -2,7 +2,30 @@ class Job < ApplicationRecord
   has_attached_file :document
   validates_attachment :document, content_type: { content_type: "application/pdf" }
 
+
   belongs_to :category
   belongs_to :user,dependent: :destroy
   has_many   :bids
+
+  has_many :taggings
+  has_many :tags, through: :taggings
+
+  def self.tagged_with(name)
+    Tag.find_by_name!(name).jobs
+  end
+
+  def self.tag_counts
+    Tag.select("tags.*, count(taggings.tag_id) as count").
+        joins(:taggings).group("taggings.tag_id")
+  end
+
+  def tag_list
+    tags.map(&:name).join(", ")
+  end
+
+  def tag_list=(names)
+    self.tags = names.split(",").map do |n|
+      Tag.where(name: n.strip).first_or_create!
+    end
+  end
 end

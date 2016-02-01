@@ -4,7 +4,11 @@ class JobsController < ApplicationController
   before_filter :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @jobs = Job.all
+    if params[:tags].present?
+      @jobs = Job.tagged_with(params[:tags])
+    else
+      @jobs = Job.all
+    end
   end
 
   def new
@@ -50,7 +54,7 @@ class JobsController < ApplicationController
   end
 
   def jobs_params
-    params.require(:job).permit(:title,:description,:price,:duration,:location,:category_id,:document)
+    params.require(:job).permit(:title,:description,:price,:duration,:location,:category_id,:document,:tag_list)
   end
 
   def correct_user

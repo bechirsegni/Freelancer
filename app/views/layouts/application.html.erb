@@ -12,13 +12,17 @@
   </head>
 
   <body class="fixed-header horizontal-menu">
+  <%= render("layouts/common/notifications")%>
   <div class="page-container ">
-      <%= render("layouts/common/head")%>
+    <div class="page-content-wrapper ">
+    <%= render("layouts/common/head")%>
       <%= render("layouts/common/quickview")%>
       <%= yield %>
       <%= render("layouts/common/footer")%>
       </div>
+  </div>
     <%= render("layouts/common/search")%>
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= yield :js%>
   </body>

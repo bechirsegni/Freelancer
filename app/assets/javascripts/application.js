@@ -28,3 +28,12 @@
 //= require scripts
 //= require demo
 //= require turbolinks
+//= require_self
+
+$(document).ready(function(){
+    setTimeout(function(){
+        $('.pgn-wrapper').fadeOut("slow", function() {
+            $(this).remove();
+        })
+    }, 4500);
+});

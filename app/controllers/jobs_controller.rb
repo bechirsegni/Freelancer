@@ -21,7 +21,7 @@ class JobsController < ApplicationController
   def create
     @job = current_user.jobs.build(jobs_params)
       if @job.save!
-        redirect_to @job
+        redirect_to @job, notice: "Job Successfully Created"
       else
         render :new
       end
@@ -33,7 +33,7 @@ class JobsController < ApplicationController
 
   def update
     if @job.update(jobs_params)
-      redirect_to job_path
+      redirect_to job_path , notice: "Job Successfully Modified"
     else
       render :edit
     end
@@ -41,7 +41,7 @@ class JobsController < ApplicationController
 
   def destroy
      if @job.destroy!
-      redirect_to jobs_path
+      redirect_to jobs_path notice: "Job Successfully Destroyed"
      else
        redirect_to job_path
      end

@@ -17,7 +17,7 @@ class ShowcasesController < ApplicationController
   def create
     @showcase = current_user.showcases.build(showcase_params)
     if @showcase.save!
-      redirect_to @showcases
+      redirect_to showcases_path(@showcases), notice: "Showcase Successfully Created"
     else
       render :new
     end
@@ -28,7 +28,7 @@ class ShowcasesController < ApplicationController
 
   def update
     if @showcase.update(showcase_params)
-      redirect_to @showcases
+      redirect_to @showcases, notice: "Showcase Successfully Modified"
     else
       render :edit
     end

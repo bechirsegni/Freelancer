@@ -5,6 +5,7 @@ gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'puma'
@@ -16,6 +17,9 @@ gem 'omniauth-facebook'
 gem 'omniauth-linkedin', '~> 0.2.0'
 gem 'mailboxer'
 gem 'will_paginate'
+
+gem 'private_pub'
+gem 'thin'
 group :development, :test do
   gem 'byebug'
 end

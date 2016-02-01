@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
   resources :showcases
   resources :articles
-  resources :users, :only => [:show]
+  resources :users, :only => [:show,:index]
   root to: 'static#dashboard'
     devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   devise_scope :user do
@@ -20,6 +20,10 @@ Rails.application.routes.draw do
 
   resources :categories
   get 'tags/:tag', to: 'jobs#index', as: :tag
+
+  resources :conversations do
+    resources :messages
+  end
 
   # Serve websocket cable requests in-process
   # mount ActionCable.server => '/cable'

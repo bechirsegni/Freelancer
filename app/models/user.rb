@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :articles
   has_many :bids
 
-  has_many :conversations, :foreign_key => :sender_id
+  has_many :conversations, :foreign_key => :sender_id , dependent: :destroy
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

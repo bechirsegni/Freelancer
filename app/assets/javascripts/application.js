@@ -12,7 +12,6 @@
 //
 //= require pace.min
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
 //= require modernizr.custom
 //= require jquery-ui.min

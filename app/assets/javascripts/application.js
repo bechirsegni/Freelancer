@@ -16,6 +16,7 @@
 //= require modernizr.custom
 //= require jquery-ui.min
 //= require bootstrap.min
+//= require bootstrap-tagsinput.min
 //= require jquery-easy
 //= require jquery.unveil.min
 //= require jquery.bez.min
@@ -27,7 +28,6 @@
 //= require pages.min
 //= require scripts
 //= require demo
-//= require turbolinks
 //= require_self
 
 $(document).ready(function(){

@@ -14,4 +14,5 @@ Rails.application.config.assets.precompile += %w( MetroJs.css dialog.css dialog-
                                                   gallery.js MetroJs.min.js imagesloaded.pkgd.min.js
                                                   isotope.pkgd.min dialogFx.js owl.carousel.min.js
                                                   jquery.nouislider.min.js jquery.liblink.js dropzone.css
-                                                  dropzone.min.js )
+                                                  dropzone.min.js simple.css pages.social.min.js
+                                                  isotope.pkgd.min.js stepsForm.js)

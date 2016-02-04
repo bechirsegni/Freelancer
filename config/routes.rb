@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     delete 'logout', to: 'devise/sessions#destroy'
     get 'password', to: 'devise/passwords#new'
     get 'account', to: 'devise/registrations#edit'
+    get "u/:id" => "users#show", :as => 'profile'
+    get 'freelancers', to: 'users#index'
   end
 
   resources :categories

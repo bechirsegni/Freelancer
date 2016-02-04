@@ -1,8 +1,4 @@
 <%= provide(:title,'Add New Project') %>
-<%= content_for :css do %>
-    <%= stylesheet_link_tag 'dropzone'%>
-<%end%>
-
 <div class="col-md-6">
 
   <div class="panel panel-default">
@@ -15,31 +11,28 @@
       <h5>
         Pages default style
       </h5>
+      <div class="select2-container full-width">
       <%= form_for @job, :multipart => true do|f| %>
           <%= f.collection_select(:category_id, Category.all, :id, :name, {:prompt => 'Choose a category'},
                                   {class: "form-control"})%>
+      </div>
         <div class="form-group form-group-default required ">
           <%=f.label :title%>
           <%=f.text_field :title,class:'form-control'%>
         </div>
         <div class="row">
           <div class="col-sm-12">
-            <div class="form-group form-group-default required">
+            <div class="form-group form-group-default required" style="height:250px">
               <%=f.label :description%>
-              <%=f.text_area :description, class:'form-control', required: true%>
+              <%=f.text_area :description, class:'form-control', required: true, style:'height: 236px'%>
             </div>
           </div>
       </div>
+        <div class="form-group bootstrap-tagsinput">
+            <%= f.label :tag_list, "Skills" %><br />
+            <%= f.text_field :tag_list, class:'tagsinput custom-tag-input', 'data-role'=>'tagsinput' %>
+        </div>
 
-          <div class="field">
-            <%= f.label :tag_list, "Tags (separated by commas)" %><br />
-            <%= f.text_field :tag_list %>
-          </div>
-
-          <div class="dropzone no-margin dz-clickable dz-default dz-message">
-            <%=f.file_field :document, class:'dz-default dz-message' %>
-            <span>Drop files here to upload</span>
-          </div>
     </div>
   </div>
 </div>
@@ -70,11 +63,13 @@
       <%=f.label :location%>
       <%=f.text_field :location, class:'form-control'%>
     </div>
+
+      <div class="form-group  form-group-default">
+        <%=f.label :document%>
+        <%=f.file_field :document ,class:'form-control'%>
+      </div>
       <%=f.submit 'Submit',class:'btn btn-success'%>
     </div>
   </div>
 </div>
-<%end%>
-<%= content_for :js do %>
-   <%= javascript_include_tag 'dropzone.min'%>
 <%end%>

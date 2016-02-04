@@ -3,49 +3,61 @@
 <%= render 'head'%>
   <div class="content ">
     <div class="container-fluid container-fixed-lg">
-      <%@jobs.each do |job|%>
-          <div class="panel-body">
-          <div class="col-md-12 sm-no-padding">
-            <div class="panel panel-transparent" style="margin-bottom: -50px">
-              <div class="panel-body no-padding">
-                <div id="portlet-advance" class="panel panel-default">
-                  <div class="panel-heading ">
-                    <div class="panel-title">
-                      <h3>
-                        <span class="semi-bold"><%=job.title%></span></h3>
-                      Skills:
-                      <span class="label"><%=job.category.name%></span>
-                      Tags: <%= raw job.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
-                    </div>
-                    <div class="panel-controls">
-                      <ul>
-                        <li><a href="#" class="portlet-maximize" data-toggle="maximize"><i class="portlet-icon portlet-icon-maximize"></i></a>
-                        </li>
-                        <li><a href="#" class="portlet-close" data-toggle="close"><i class="portlet-icon portlet-icon-close"></i></a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="panel-body">
-                    <p><b>Price</b> - <%=job.price%> ($$) - <b>Est. Time:</b> <%=job.duration%> - <b>Location: </b><%=job.location%></p>
-                    <p><%=job.description%></p>
-                    <div>
-                      <div class="profile-img-wrapper m-t-5 inline">
-                        <img width="35" height="35" data-src-retina="assets/img/profiles/avatar_small2x.jpg" data-src="assets/img/profiles/avatar_small.jpg" alt="" src="assets/img/profiles/avatar_small2x.jpg">
-                        <div class="chat-status available">
-                        </div>
-                      </div>
-                      <div class="inline m-l-10">
-                        <p class="small hint-text m-t-5">VIA senior product manage
-                          <br>for UI/UX at REVOX</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+      <div class="panel panel-transparent">
+        <div class="panel-heading">
+          <div class="panel-title">Getting started
           </div>
         </div>
-      <%end%>
+        <div class="panel-body">
+          <div class="row">
+            <%@jobs.each do |job|%>
+                <div class="col-sm-4">
+
+                  <div class="panel panel-transparent">
+                    <div class="panel-body no-padding">
+                      <div id="portlet-advance" class="panel panel-default">
+                        <div class="panel-heading ">
+                          <div class="panel-title">
+                            <h3>
+                              <span class="semi-bold"><%=job.title%></span></h3>
+                            Skills:
+                            <span class="label"><%=job.category.name%></span>
+                            Tags: <%= raw job.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
+                          </div>
+                          <div class="panel-controls">
+                            <ul>
+                              <li><a href="#" class="portlet-maximize" data-toggle="maximize"><i class="portlet-icon portlet-icon-maximize"></i></a>
+                              </li>
+                              <li><a href="#" class="portlet-close" data-toggle="close"><i class="portlet-icon portlet-icon-close"></i></a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p><b>Price</b> - <%=job.price%> ($$) - <b>Est. Time:</b> <%=job.duration%> - <b>Location: </b><%=job.location%></p>
+                          <p><%=job.description%></p>
+                          <div>
+                            <div class="profile-img-wrapper m-t-5 inline">
+                              <img width="35" height="35" data-src-retina="assets/img/profiles/avatar_small2x.jpg" data-src="assets/img/profiles/avatar_small.jpg" alt="" src="assets/img/profiles/avatar_small2x.jpg">
+                              <div class="chat-status available">
+                              </div>
+                            </div>
+                            <div class="inline m-l-10">
+                              <p class="small hint-text m-t-5">VIA senior product manage
+                                <br>for UI/UX at REVOX</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+            <%end%>
+          </div>
+        </div>
       </div>
     </div>
+    </div>
+

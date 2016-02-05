@@ -1,4 +1,5 @@
 class StaticController < ApplicationController
+  before_filter :authenticate_user!
 
   def dashboard
     @jobs = Job.all

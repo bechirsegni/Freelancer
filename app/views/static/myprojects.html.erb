@@ -1,0 +1,273 @@
+<div class="content">
+  <div class="container-fluid container-fixed-lg">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-info visible-xs m-r-5 m-l-5" role="alert">
+          <button class="close" data-dismiss="alert"></button>
+          <strong>Info: </strong> On mobile the tab will be come a Accorian by using data-init-reponsive-tabs="collapse"
+        </div>
+        <div class="panel">
+          <ul class="nav nav-tabs nav-tabs-simple hidden-xs" role="tablist" data-init-reponsive-tabs="collapse">
+            <li class="active"><a aria-expanded="true" href="#tab2hellowWorld" data-toggle="tab" role="tab">Active Bids</a>
+            </li>
+            <li class=""><a aria-expanded="false" href="#tab2FollowUs" data-toggle="tab" role="tab">Active Projects</a>
+            </li>
+            <li class=""><a aria-expanded="false" href="#tab2Inspire" data-toggle="tab" role="tab">Hello Three</a>
+            </li>
+          </ul>
+          <div class="panel-group visible-xs" id="ns1Q4-accordion"></div>
+          <div class="tab-content hidden-xs">
+            <div class="tab-pane active" id="tab2hellowWorld">
+              <div class="row column-seperation">
+                <div class="col-md-12">
+                  <div class="dataTables_wrapper form-inline no-footer" id="tableWithDynamicRows_wrapper">
+                    <div class="table-responsive">
+                      <table aria-describedby="tableWithDynamicRows_info" role="grid" class="table table-hover demo-table-dynamic dataTable no-footer" id="tableWithDynamicRows">
+                        <thead>
+                        <tr role="row">
+                          <th aria-label="App name: activate to sort column descending" aria-sort="ascending" colspan="1" rowspan="1" aria-controls="tableWithDynamicRows" tabindex="0" class="sorting_asc">Project Name</th>
+                          <th aria-label="Description: activate to sort column ascending" style="width: 297px;" colspan="1" rowspan="1" aria-controls="tableWithDynamicRows" tabindex="0" class="sorting">Bids</th>
+                          <th aria-label="Price: activate to sort column ascending" style="width: 185px;" colspan="1" rowspan="1" aria-controls="tableWithDynamicRows" tabindex="0" class="sorting">My Bid</th>
+                          <th aria-label="Notes: activate to sort column ascending" style="width: 241px;" colspan="1" rowspan="1" aria-controls="tableWithDynamicRows" tabindex="0" class="sorting">Bid End Date</th>
+                          <th aria-label="Notes: activate to sort column ascending" style="width: 241px;" colspan="1" rowspan="1" aria-controls="tableWithDynamicRows" tabindex="0" class="sorting">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <%current_user.bids.each do |bid| %>
+                        <tr class="odd" role="row">
+                          <td class="v-align-middle sorting_1">
+                            <p><%= link_to bid.job.title, bid.job%></p>
+                          </td>
+                          <td class="v-align-middle">
+                            <p><%=bid.job.bids.count%></p>
+                          </td>
+                          <td class="v-align-middle">
+                            <p><%=bid.job.price%></p>
+                          </td>
+                          <td class="v-align-middle">
+                            <p>Notes go here</p>
+                          </td>
+                          <td class="v-align-middle">
+                            <div class="btn-group dropdown-default">
+                              <button style="width: 169px;" id="btnGroupVerticalDrop1" type="button" class="btn btn-default dropdown-toggle text-center" data-toggle="dropdown">
+                                Fonts
+                                <span class="caret"></span>
+                              </button>
+                              <ul style="width: 169px;" class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop1">
+                                <li><a href="#">Dropdown link</a>
+                                </li>
+                                <li><a href="#">Dropdown link</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
+                        <%end%>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="row">
+                      <div>
+                        <div id="tableWithDynamicRows_paginate" class="dataTables_paginate paging_simple_numbers">
+                          <ul class="pagination">
+                            <li id="tableWithDynamicRows_previous" class="paginate_button previous disabled">
+                              <a tabindex="0" data-dt-idx="0" aria-controls="tableWithDynamicRows" href="#">Previous</a>
+                            </li>
+                            <li class="paginate_button active">
+                              <a tabindex="0" data-dt-idx="1" aria-controls="tableWithDynamicRows" href="#">1</a>
+                            </li>
+                            <li id="tableWithDynamicRows_next" class="paginate_button next disabled">
+                              <a tabindex="0" data-dt-idx="2" aria-controls="tableWithDynamicRows" href="#">Next</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div aria-live="polite" role="status" id="tableWithDynamicRows_info" class="dataTables_info">Showing <b>1 to 5</b> of 5 entries</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab2FollowUs">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="dataTables_wrapper form-inline no-footer" id="tableWithDynamicRows_wrapper">
+                    <div class="table-responsive">
+                      <table aria-describedby="tableWithDynamicRows_info" role="grid" class="table table-hover demo-table-dynamic dataTable no-footer" id="tableWithDynamicRows">
+                        <thead>
+                        <tr role="row">
+                          <th aria-label="App name: activate to sort column descending" aria-sort="ascending" colspan="1" rowspan="1" aria-controls="tableWithDynamicRows" tabindex="0" class="sorting_asc">Project Name</th>
+                          <th aria-label="Description: activate to sort column ascending" style="width: 297px;" colspan="1" rowspan="1" aria-controls="tableWithDynamicRows" tabindex="0" class="sorting">Description</th>
+                          <th aria-label="Price: activate to sort column ascending" style="width: 185px;" colspan="1" rowspan="1" aria-controls="tableWithDynamicRows" tabindex="0" class="sorting">Bids</th>
+                          <th aria-label="Notes: activate to sort column ascending" style="width: 241px;" colspan="1" rowspan="1" aria-controls="tableWithDynamicRows" tabindex="0" class="sorting">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <%current_user.jobs.each do |job|%>
+                        <tr class="odd" role="row">
+                          <td class="v-align-middle sorting_1">
+                            <p><%= link_to job.title, job%></p>
+                          </td>
+                          <td class="v-align-middle">
+                            <p><%=job.description%></p>
+                          </td>
+                          <td class="v-align-middle">
+                            <p><%=job.bids.count%></p>
+                          </td>
+                          <td class="v-align-middle">
+                            <div class="btn-group dropdown-default">
+                              <button style="width: 169px;" id="btnGroupVerticalDrop1" type="button" class="btn btn-default dropdown-toggle text-center" data-toggle="dropdown">
+                                Fonts
+                                <span class="caret"></span>
+                              </button>
+                              <ul style="width: 169px;" class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop1">
+                                <li><a href="#">Dropdown link</a>
+                                </li>
+                                <li><a href="#">Dropdown link</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
+                        <%end%>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="row">
+                      <div>
+                        <div id="tableWithDynamicRows_paginate" class="dataTables_paginate paging_simple_numbers">
+                          <ul class="pagination">
+                            <li id="tableWithDynamicRows_previous" class="paginate_button previous disabled">
+                              <a tabindex="0" data-dt-idx="0" aria-controls="tableWithDynamicRows" href="#">Previous</a>
+                            </li>
+                            <li class="paginate_button active">
+                              <a tabindex="0" data-dt-idx="1" aria-controls="tableWithDynamicRows" href="#">1</a>
+                            </li>
+                            <li id="tableWithDynamicRows_next" class="paginate_button next disabled">
+                              <a tabindex="0" data-dt-idx="2" aria-controls="tableWithDynamicRows" href="#">Next</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div aria-live="polite" role="status" id="tableWithDynamicRows_info" class="dataTables_info">Showing <b>1 to 5</b> of 5 entries</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab2Inspire">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="dataTables_wrapper form-inline no-footer" id="tableWithDynamicRows_wrapper">
+                    <div class="table-responsive">
+                      <table aria-describedby="tableWithDynamicRows_info" role="grid" class="table table-hover demo-table-dynamic dataTable no-footer" id="tableWithDynamicRows">
+                        <thead>
+                        <tr role="row">
+                          <th aria-label="App name: activate to sort column descending" aria-sort="ascending" colspan="1" rowspan="1" aria-controls="tableWithDynamicRows" tabindex="0" class="sorting_asc">App name</th>
+                          <th aria-label="Description: activate to sort column ascending" style="width: 297px;" colspan="1" rowspan="1" aria-controls="tableWithDynamicRows" tabindex="0" class="sorting">Description</th>
+                          <th aria-label="Price: activate to sort column ascending" style="width: 185px;" colspan="1" rowspan="1" aria-controls="tableWithDynamicRows" tabindex="0" class="sorting">Price</th>
+                          <th aria-label="Notes: activate to sort column ascending" style="width: 241px;" colspan="1" rowspan="1" aria-controls="tableWithDynamicRows" tabindex="0" class="sorting">Notes</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="odd" role="row">
+                          <td class="v-align-middle sorting_1">
+                            <p>Angry Birds</p>
+                          </td>
+                          <td class="v-align-middle">
+                            <p>Description goes here</p>
+                          </td>
+                          <td class="v-align-middle">
+                            <p>FREE</p>
+                          </td>
+                          <td class="v-align-middle">
+                            <p>Notes go here</p>
+                          </td>
+                        </tr>
+                        <tr class="even" role="row">
+                          <td class="v-align-middle sorting_1">
+                            <p>Facebook</p>
+                          </td>
+                          <td class="v-align-middle">
+                            <p>Description goes here</p>
+                          </td>
+                          <td class="v-align-middle">
+                            <p>FREE</p>
+                          </td>
+                          <td class="v-align-middle">
+                            <p>Notes go here</p>
+                          </td>
+                        </tr>
+                        <tr class="odd" role="row">
+                          <td class="v-align-middle sorting_1">
+                            <p>Foursquare</p>
+                          </td>
+                          <td class="v-align-middle">
+                            <p>Description goes here</p>
+                          </td>
+                          <td class="v-align-middle">
+                            <p>FREE</p>
+                          </td>
+                          <td class="v-align-middle">
+                            <p>Notes go here</p>
+                          </td>
+                        </tr>
+                        <tr class="even" role="row">
+                          <td class="v-align-middle sorting_1">
+                            <p>Hyperlapse</p>
+                          </td>
+                          <td class="v-align-middle">
+                            <p>Description goes here</p>
+                          </td>
+                          <td class="v-align-middle">
+                            <p>FREE</p>
+                          </td>
+                          <td class="v-align-middle">
+                            <p>Notes go here</p>
+                          </td>
+                        </tr>
+                        <tr class="odd" role="row">
+                          <td class="v-align-middle sorting_1">
+                            <p>Twitter</p>
+                          </td>
+                          <td class="v-align-middle">
+                            <p>Description goes here</p>
+                          </td>
+                          <td class="v-align-middle">
+                            <p>FREE</p>
+                          </td>
+                          <td class="v-align-middle">
+                            <p>Notes go here</p>
+                          </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="row">
+                      <div>
+                        <div id="tableWithDynamicRows_paginate" class="dataTables_paginate paging_simple_numbers">
+                          <ul class="pagination">
+                            <li id="tableWithDynamicRows_previous" class="paginate_button previous disabled">
+                              <a tabindex="0" data-dt-idx="0" aria-controls="tableWithDynamicRows" href="#">Previous</a>
+                            </li>
+                            <li class="paginate_button active">
+                              <a tabindex="0" data-dt-idx="1" aria-controls="tableWithDynamicRows" href="#">1</a>
+                            </li>
+                            <li id="tableWithDynamicRows_next" class="paginate_button next disabled">
+                              <a tabindex="0" data-dt-idx="2" aria-controls="tableWithDynamicRows" href="#">Next</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div aria-live="polite" role="status" id="tableWithDynamicRows_info" class="dataTables_info">Showing <b>1 to 5</b> of 5 entries</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

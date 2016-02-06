@@ -5,4 +5,9 @@ class StaticController < ApplicationController
     @jobs = Job.all
     @articles = Article.all
   end
+
+  def myprojects
+    @jobs = Job.all
+    @bids = Bid.all
+  end
 end

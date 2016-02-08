@@ -2,4 +2,5 @@
     <%=bid.price%><br>
     <%= bid.time%><br>
     <%=bid.proposal%>
+    <%= link_to 'Destroy', job_bid_path(@job.bids), method: :delete, data: { confirm: 'Are you sure?' } %>
 <%end%>

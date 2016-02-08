@@ -4,6 +4,7 @@ class BidsController < ApplicationController
   before_action :correct_user, only: [:destroy]
 
 
+
   def create
     @bid = @job.bids.create(bid_params)
     @bid.user = current_user
@@ -14,6 +15,8 @@ class BidsController < ApplicationController
 
 
   def destroy
+    @bid.user = current_user
+    @bid = @job.bids.find(params[:id])
     @bid.destroy
     redirect_to @job
   end
@@ -29,6 +32,6 @@ class BidsController < ApplicationController
 
   def correct_user
     @bid = current_user.bids.find_by(id: params[:id])
-    redirect_to job_path, notice: "Not authorized to destroy this bid" if @bid.nil?
+    redirect_to job_path, notice: "Not authorized to destroy this comment" if @bid.nil?
   end
 end

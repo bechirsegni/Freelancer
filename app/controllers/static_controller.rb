@@ -1,13 +1,12 @@
 class StaticController < ApplicationController
   before_filter :authenticate_user!
-
   def dashboard
-    @jobs = Job.all
     @articles = Article.all
   end
 
   def myprojects
-    @jobs = Job.all
-    @bids = Bid.all
+    @jobs = current_user.jobs.paginate(:page => params[:page], :per_page => 10).order("id DESC")
+    @bids = current_user.bids.paginate(:page => params[:page], :per_page => 10).order("id DESC")
   end
+
 end

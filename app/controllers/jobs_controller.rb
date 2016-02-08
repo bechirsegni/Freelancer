@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_filter :set_job ,only:[:show, :edit, :update, :destroy]
+  before_filter :set_job ,only:[:show, :edit, :update, :destroy,:worker]
   before_filter :authenticate_user!
   before_filter :correct_user, only: [:edit, :update, :destroy]
 
@@ -30,7 +30,10 @@ class JobsController < ApplicationController
   def edit
 
   end
-
+  def worker
+    @job.update_attribute(worker: @bid.user)
+    @job.save
+  end
   def update
     if @job.update(jobs_params)
       redirect_to job_path , notice: "Job Successfully Modified"
@@ -54,7 +57,7 @@ class JobsController < ApplicationController
   end
 
   def jobs_params
-    params.require(:job).permit(:title,:description,:price,:duration,:location,:category_id,:document,:tag_list)
+    params.require(:job).permit(:title,:description,:price,:duration,:location,:category_id,:document,:tag_list,:worker)
   end
 
   def correct_user

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :showcases
   resources :articles
   resources :categories
+  match 'worker', to: 'jobs#worker', via:[:post,:get]
+
 
   get 'tags/:tag', to: 'jobs#index', as: :tag
 

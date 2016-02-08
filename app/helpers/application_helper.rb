@@ -17,4 +17,8 @@ module ApplicationHelper
     end
   end
 
+  def notification
+    @jobs = Job.all
+  end
+
 end

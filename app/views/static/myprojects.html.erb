@@ -1,3 +1,5 @@
+<%= provide(:title,'My Projects')%>
+
 <div class="content">
   <div class="jumbotron" data-pages="parallax">
     <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
@@ -158,13 +160,13 @@
                           <td class="v-align-middle">
                             <div class="btn-group dropdown-default">
                               <button style="width: 169px;" id="btnGroupVerticalDrop1" type="button" class="btn btn-default dropdown-toggle text-center" data-toggle="dropdown">
-                                Fonts
+                                Actions
                                 <span class="caret"></span>
                               </button>
                               <ul style="width: 169px;" class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop1">
-                                <li><a href="#">Dropdown link</a>
+                                <li><%= link_to 'Delete This Project', job, method: :delete, data: { confirm: 'Are you sure?' } %>
                                 </li>
-                                <li><a href="#">Dropdown link</a>
+                                <li><a href="#">Sponsor This Project</a>
                                 </li>
                               </ul>
                             </div>
@@ -199,7 +201,7 @@
                           <th aria-label="App name: activate to sort column descending" aria-sort="ascending" colspan="1" rowspan="1" aria-controls="tableWithDynamicRows" tabindex="0" class="sorting_asc">Project Name</th>
                           <th aria-label="Description: activate to sort column ascending" style="width: 297px;" colspan="1" rowspan="1" aria-controls="tableWithDynamicRows" tabindex="0" class="sorting">Bider Name</th>
                           <th aria-label="Price: activate to sort column ascending" style="width: 185px;" colspan="1" rowspan="1" aria-controls="tableWithDynamicRows" tabindex="0" class="sorting">Price</th>
-                          <th aria-label="Notes: activate to sort column ascending" style="width: 241px;" colspan="1" rowspan="1" aria-controls="tableWithDynamicRows" tabindex="0" class="sorting">Duration</th>
+                          <th aria-label="Notes: activate to sort column ascending" style="width: 241px;" colspan="1" rowspan="1" aria-controls="tableWithDynamicRows" tabindex="0" class="sorting">Notes</th>
                           <th aria-label="Notes: activate to sort column ascending" style="width: 241px;" colspan="1" rowspan="1" aria-controls="tableWithDynamicRows" tabindex="0" class="sorting">Actions</th>
                         </tr>
                         </thead>

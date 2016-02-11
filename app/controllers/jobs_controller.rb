@@ -44,7 +44,7 @@ class JobsController < ApplicationController
 
   def destroy
      if @job.destroy!
-      redirect_to jobs_path notice: "Job Successfully Destroyed"
+      redirect_to jobs_path , notice: "Job Successfully Destroyed"
      else
        redirect_to job_path
      end

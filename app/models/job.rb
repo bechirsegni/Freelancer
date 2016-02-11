@@ -5,8 +5,7 @@ class Job < ApplicationRecord
 
   belongs_to :category
   belongs_to :user
-  has_many   :bids
-
+  has_many   :bids ,   :dependent => :destroy
   has_many :taggings , :dependent => :destroy
   has_many :tags, through: :taggings
 

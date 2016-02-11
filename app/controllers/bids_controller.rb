@@ -1,12 +1,13 @@
 class BidsController < ApplicationController
-  before_action :set_bid, only: [:create, :destroy]
+  before_action :set_bid, only: [:destroy]
   before_action :authenticate_user!
   before_action :correct_user, only: [:destroy]
 
 
 
   def create
-    @bid = @job.bids.create(bid_params)
+    @job = Job.find(params[:job_id])
+    @bid =  @job.bids.build(bid_params)
     @bid.user = current_user
     if @bid.save
       redirect_to job_path(@job)
@@ -16,14 +17,13 @@ class BidsController < ApplicationController
 
   def destroy
     @bid.user = current_user
-    @bid = @job.bids.find(params[:id])
     @bid.destroy
-    redirect_to @job
+    redirect_to projects_url
   end
 
   private
   def set_bid
-    @job = Job.find(params[:job_id])
+    @bid = Bid.find(params[:id])
   end
 
   def bid_params

@@ -16,6 +16,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-linkedin', '~> 0.2.0'
 gem 'mailboxer'
 gem 'will_paginate'
+gem 'awesome_nested_set'
 group :development, :test do
   gem 'byebug'
 end

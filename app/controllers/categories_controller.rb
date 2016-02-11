@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_filter :set_category ,only:[:edit, :update, :destroy]
 
   def index
     @categories = Category.all
@@ -9,11 +10,10 @@ class CategoriesController < ApplicationController
   end
 
   def edit
-    @category = Category.find(params[:id])
   end
 
   def create
-    @category = Category.new(params[:category].permit!)
+    @category = Category.create(category_params)
     if @category.save
       redirect_to categories_url
     else
@@ -22,7 +22,6 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    @category = Category.find(params[:id])
     if @category.update_attributes(params[:category].permit!)
       redirect_to categories_url
     else
@@ -35,4 +34,13 @@ class CategoriesController < ApplicationController
     redirect_to categories_url
   end
 
+  private
+
+  def set_category
+    @category = Category.find(params[:id])
+  end
+
+  def category_params
+    params.require(:category).permit(:name,:parent_id)
+  end
 end

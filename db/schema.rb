@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160207215409) do
+ActiveRecord::Schema.define(version: 20160211174324) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -37,11 +37,13 @@ ActiveRecord::Schema.define(version: 20160207215409) do
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "category_id"
-    t.index ["category_id"], name: "index_categories_on_category_id", using: :btree
+    t.string  "name"
+    t.integer "parent_id"
+    t.integer "lft",       null: false
+    t.integer "rgt",       null: false
+    t.index ["lft"], name: "index_categories_on_lft", using: :btree
+    t.index ["parent_id"], name: "index_categories_on_parent_id", using: :btree
+    t.index ["rgt"], name: "index_categories_on_rgt", using: :btree
   end
 
   create_table "conversations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -137,7 +139,6 @@ ActiveRecord::Schema.define(version: 20160207215409) do
   end
 
   add_foreign_key "articles", "users"
-  add_foreign_key "categories", "categories"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
   add_foreign_key "taggings", "jobs"

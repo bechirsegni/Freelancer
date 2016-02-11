@@ -1,0 +1,9 @@
+<h1>hello</h1>
+<h1>hello</h1>
+
+<%= select_tag 'parent_id', options_for_select(nested_set_options(Category) {|i| "#{'-' * i.level} #{i.name}" } ) %>
+<%= select_tag 'children', options_for_select(nested_set_options(Category) {|i| "#{'-' * i.level} #{i.name}" } ) %>
+
+<% @categories.each do |c|%>
+<%=c.name%>
+<%end%>

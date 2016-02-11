@@ -1,5 +1,4 @@
 class Category < ApplicationRecord
+  acts_as_nested_set
   has_many :jobs
-  belongs_to :category
-  has_many :children, :dependent => :destroy, :class_name => 'Category'
-  end
+end

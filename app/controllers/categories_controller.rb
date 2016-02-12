@@ -2,9 +2,14 @@ class CategoriesController < ApplicationController
   before_filter :set_category ,only:[:edit, :update, :destroy]
 
   def index
-    @categories = Category.all
+    @categories = Category.where("parent_id IS NULL")
+    @category = Category.new
   end
 
+  def get_subscategories
+    @subscategories = Category.where(:parent_id => params[:parent_id])
+    render :partial => 'subscategories', :object => @subscategories
+  end
   def new
     @category = Category.new
   end

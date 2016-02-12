@@ -37,3 +37,15 @@ $(document).ready(function(){
         })
     }, 4500);
 });
+
+function update_subscategories_div(parent_id) {
+    jQuery.ajax({
+        url: "/get_subscategories",
+        type: "GET",
+        data: {"parent_id" : parent_id},
+        dataType: "html",
+        success: function(data) {
+            jQuery("#versionsDiv").html(data);
+        }
+    });
+}

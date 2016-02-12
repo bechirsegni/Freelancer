@@ -1,9 +1,7 @@
 <h1>hello</h1>
 <h1>hello</h1>
 
-<%= select_tag 'parent_id', options_for_select(nested_set_options(Category) {|i| "#{'-' * i.level} #{i.name}" } ) %>
-<%= select_tag 'children', options_for_select(nested_set_options(Category) {|i| "#{'-' * i.level} #{i.name}" } ) %>
 
-<% @categories.each do |c|%>
-<%=c.name%>
-<%end%>
+<%= select_tag "parent_category", options_from_collection_for_select(@categories, "id", "name"), :prompt => "Select a parent category", :onchange => "update_subscategories_div(this.value)" %>
+<div id="versionsDiv">
+</div>

@@ -7,11 +7,9 @@ Rails.application.routes.draw do
   resources :articles
   resources :categories
   match 'worker', to: 'jobs#worker', via:[:post,:get]
-
-
   get 'tags/:tag', to: 'jobs#index', as: :tag
-
   get 'projects',  to: 'static#myprojects'
+  get 'get_subscategories' ,to: 'categories#get_subscategories'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   devise_scope :user do

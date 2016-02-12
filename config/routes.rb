@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'jobs#index', as: :tag
   get 'projects',  to: 'static#myprojects'
   get 'get_subscategories' ,to: 'categories#get_subscategories'
+  get 'get_newsubscategories' ,to: 'categories#get_subscategories'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   devise_scope :user do

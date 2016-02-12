@@ -12,6 +12,7 @@ class JobsController < ApplicationController
   end
 
   def new
+    @categories = Category.all
     @job = current_user.jobs.build
   end
 

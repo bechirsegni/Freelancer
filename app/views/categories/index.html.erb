@@ -1,7 +1,167 @@
-<h1>hello</h1>
-<h1>hello</h1>
+<div class="page-content-wrapper ">
+  <div class="content ">
+    <div class="container-fluid container-fixed-lg">
+      <div class="row">
+        <div class="col-sm-4">
 
+          <div class="panel panel-transparent">
+            <div class="panel-heading">
+              <div class="panel-title">Boostrap Native Modals
+              </div>
+            </div>
+            <div class="panel-body">
+            <span style="float: left; margin-right: 15px;"> <i class=" fa fa-code fa-5x"></i></span>
+              <p>Boostrap modals are something very functional
+                and we began to think how to make something better even better.
+                The modals were styled to suite pages color scheme and animation.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+
+          <div class="panel panel-transparent">
+            <div class="panel-heading">
+              <div class="panel-title">Style and Animation
+              </div>
+            </div>
+            <div class="panel-body">
+              <span style="float: left; margin-right: 15px;"> <i class=" fa fa-code fa-5x"></i></span>
+              <p>Boostrap modals are something very functional
+                and we began to think how to make something better even better.
+                The modals were styled to suite pages color scheme and animation.</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-sm-4">
+
+          <div class="panel panel-transparent">
+            <div class="panel-heading">
+              <div class="panel-title">Functional
+              </div>
+            </div>
+            <div class="panel-body">
+              <span style="float: left; margin-right: 15px;"> <i class=" fa fa-code fa-5x"></i></span>
+              <p>Boostrap modals are something very functional
+                and we began to think how to make something better even better.
+                The modals were styled to suite pages color scheme and animation.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+
+          <div class="panel panel-transparent">
+            <div class="panel-heading">
+              <div class="panel-title">Boostrap Native Modals
+              </div>
+            </div>
+            <div class="panel-body">
+              <span style="float: left; margin-right: 15px;"> <i class=" fa fa-code fa-5x"></i></span>
+              <p>Boostrap modals are something very functional
+                and we began to think how to make something better even better.
+                The modals were styled to suite pages color scheme and animation.</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-sm-4">
+
+          <div class="panel panel-transparent">
+            <div class="panel-heading">
+              <div class="panel-title">Style and Animation
+              </div>
+            </div>
+            <div class="panel-body">
+              <span style="float: left; margin-right: 15px;"> <i class=" fa fa-code fa-5x"></i></span>
+              <p>Boostrap modals are something very functional
+                and we began to think how to make something better even better.
+                The modals were styled to suite pages color scheme and animation.</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-sm-4">
+
+          <div class="panel panel-transparent">
+            <div class="panel-heading">
+              <div class="panel-title">Functional
+              </div>
+            </div>
+            <div class="panel-body">
+              <span style="float: left; margin-right: 15px;"> <i class=" fa fa-code fa-5x"></i></span>
+              <p>Boostrap modals are something very functional
+                and we began to think how to make something better even better.
+                The modals were styled to suite pages color scheme and animation.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+
+          <div class="panel panel-transparent">
+            <div class="panel-heading">
+              <div class="panel-title">Boostrap Native Modals
+              </div>
+            </div>
+            <div class="panel-body">
+              <span style="float: left; margin-right: 15px;"> <i class=" fa fa-code fa-5x"></i></span>
+              <p>Boostrap modals are something very functional
+                and we began to think how to make something better even better.
+                The modals were styled to suite pages color scheme and animation.</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-sm-4">
+
+          <div class="panel panel-transparent">
+            <div class="panel-heading">
+              <div class="panel-title">Style and Animation
+              </div>
+            </div>
+            <div class="panel-body">
+              <span style="float: left; margin-right: 15px;"> <i class=" fa fa-code fa-5x"></i></span>
+              <p>Boostrap modals are something very functional
+                and we began to think how to make something better even better.
+                The modals were styled to suite pages color scheme and animation.</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-sm-4">
+
+          <div class="panel panel-transparent">
+            <div class="panel-heading">
+              <div class="panel-title">Functional
+              </div>
+            </div>
+            <div class="panel-body">
+              <span style="float: left; margin-right: 15px;"> <i class=" fa fa-code fa-5x"></i></span>
+              <p>Boostrap modals are something very functional
+                and we began to think how to make something better even better.
+                The modals were styled to suite pages color scheme and animation.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+</div>
+</div>
 
 <%= select_tag "parent_category", options_from_collection_for_select(@categories, "id", "name"), :prompt => "Select a parent category", :onchange => "update_subscategories_div(this.value)" %>
 <div id="versionsDiv">
 </div>
+
+<%@categories.each do |c|%>
+    <ul><h1><%=c.name%></h1>
+      <%c.children.each do |s|%>
+          <li><%=s.name%></li><br>
+      <%end%>
+    </ul>
+<%end%>

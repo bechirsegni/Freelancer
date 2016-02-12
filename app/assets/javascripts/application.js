@@ -49,3 +49,16 @@ function update_subscategories_div(parent_id) {
         }
     });
 }
+
+function update_newsubscategories_div(parent_id) {
+    jQuery.ajax({
+        url: "/get_newsubscategories",
+        type: "GET",
+        data: {"parent_id" : parent_id},
+        dataType: "html",
+        success: function(data) {
+            jQuery("#versions1Div").html(data);
+        }
+    });
+}
+

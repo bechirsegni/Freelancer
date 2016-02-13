@@ -7,7 +7,7 @@ class Job < ApplicationRecord
   belongs_to :user
   has_many   :bids ,   :dependent => :destroy
   has_many :taggings , :dependent => :destroy
-  has_many :tags, through: :taggings
+  has_many :tags, through: :taggings , :dependent => :destroy
 
   def self.tagged_with(name)
     Tag.find_by_name!(name).jobs

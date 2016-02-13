@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   before_filter :set_job ,only:[:show, :edit, :update, :destroy,:worker]
   before_filter :authenticate_user!
+  before_filter :set_cat ,only:[:new, :edit, :update, :destroy,:create]
   before_filter :correct_user, only: [:edit, :update, :destroy]
 
   def index
@@ -13,7 +14,6 @@ class JobsController < ApplicationController
 
   def new
     @categories = Category.all
-    @job = current_user.jobs.build
   end
 
   def show
@@ -55,6 +55,10 @@ class JobsController < ApplicationController
 
   def set_job
   @job = Job.find(params[:id])
+  end
+
+  def set_cat
+    @job = current_user.jobs.build
   end
 
   def jobs_params

@@ -1,2 +1,2 @@
-<%= f.collection_select(:category_id, Category, :id, :name, {:prompt => 'Choose a category'},
+<%= f.collection_select(:category_id, Category.children, :id, :name, {:prompt => 'Choose a category'},
                         {class: "form-control"})%>

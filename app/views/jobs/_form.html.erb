@@ -11,12 +11,11 @@
         Pages default style
       </h5>
       <div class="select2-container full-width">
-        <%= select_tag "parent_category", options_from_collection_for_select(@categories.where(parent_id: nil), "id", "name"), :prompt => "Select a parent category", :onchange => "update_newsubscategories_div(this.value)" %>
 
         <%= form_for @job, :multipart => true do|f| %>
-            <div id="versions1Div">
-            </div>
 
+            <%= f.collection_select(:category_id, Category.where(parent_id: nil), :id, :name, {:prompt => 'Choose a category'},
+                                    {class: "form-control"})%>
 
       </div>
         <div class="form-group form-group-default required ">

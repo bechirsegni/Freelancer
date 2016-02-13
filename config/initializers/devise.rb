@@ -268,4 +268,13 @@ Devise.setup do |config|
   config.omniauth :facebook, "592804697485715", "c5cae25f86c81b1fd09478106f7ff93a" , {:scope => 'user_about_me', :image_size => 'large', :secure_image_url => true}
   config.omniauth :linkedin, "77umx9ww2j8lrw", "oluoiX505n3FFZk1"
 
+
+  Rails.application.config.to_prepare do
+    Devise::SessionsController.layout "devise"
+    Devise::RegistrationsController.layout proc { |controller| user_signed_in? ? "application" : "devise" }
+    Devise::ConfirmationsController.layout "devise"
+    Devise::UnlocksController.layout "devise"
+    Devise::PasswordsController.layout "devise"
+  end
+
 end

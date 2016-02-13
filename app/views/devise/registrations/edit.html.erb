@@ -1,10 +1,96 @@
+<%= provide(:title,'Account Settings')%>
+
+<div class="page-content-wrapper ">
+  <div class="content">
+    <div class="container-fluid container-fixed-lg">
+      <div class="panel panel-transparent">
+        <div class="panel-heading">
+          <div class="panel-title">Separated form layouts
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-12">
+              <h3>Simple but not simpler, Seperate your forms and create diversified info graphic</h3>
+              <p>Want it to be more Descriptive and User Friendly, We Made it possible, Use Seperated Form
+                Layouts Structure to Presentate your Form Fields.
+              </p>
+              <br>
+              <p class="small hint-text">To Add A full Width Portlet - Class - portlet-full This can be used
+                in any
+                <br> widget or situation, Highly Recomended on Forms and tables</p>
+              <form novalidate="novalidate" id="form-work" class="form-horizontal" role="form" autocomplete="off">
+                <div class="form-group">
+                  <label for="fname" class="col-sm-3 control-label">Name</label>
+                  <div class="col-sm-9">
+                    <input aria-required="true" class="form-control" id="fname" placeholder="Full name" name="name" required="" type="text">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Your gender</label>
+                  <div class="col-sm-9">
+                    <div class="radio radio-success">
+                      <input value="male" name="optionyes" id="male" type="radio">
+                      <label for="male">Male</label>
+                      <input checked="checked" value="female" name="optionyes" id="female" type="radio">
+                      <label for="female">Female</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Work</label>
+                  <div class="col-sm-9">
+                    <p>Have you Worked at page Inc. before, Or joined the Pages Supirior Club?</p>
+                    <p class="hint-text small">If yes State which Place, if yes note date and Job CODE /
+                      Membership Number</p>
+                    <div class="row">
+                      <div class="col-sm-5">
+                        <input aria-required="true" class="form-control" required="" type="text">
+                      </div>
+                      <div class="col-sm-5 sm-m-t-10">
+                        <input placeholder="Code/Number" class="form-control" type="text">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="position" class="col-sm-3 control-label">Position applying for</label>
+                  <div class="col-sm-9">
+                    <input aria-required="true" class="form-control" id="position" placeholder="Designation" required="" type="text">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="name" class="col-sm-3 control-label">Description</label>
+                  <div class="col-sm-9">
+                    <textarea class="form-control" id="name" placeholder="Briefly Describe your Abilities"></textarea>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p>I hereby certify that the information above is true and accurate. </p>
+                  </div>
+                  <div class="col-sm-9">
+                    <button class="btn btn-success" type="submit">Submit</button>
+                    <button class="btn btn-default"><i class="pg-close"></i> Clear</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { :multipart => true }) do |f| %>
+    <%= devise_error_messages! %>
 
     <div class="field">
-      <%= f.file_field :photo %>
+      <%= f.file_field :image %>
     </div>
 
   <div class="field">
@@ -26,10 +112,6 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
 
   <div class="actions">
     <%= f.submit "Update" %>
@@ -41,3 +123,4 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+

@@ -5,15 +5,13 @@ class JobsController < ApplicationController
   before_filter :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    if params[:tags].present?
-      @jobs = Job.tagged_with(params[:tags])
-    else
       @jobs = Job.all
-    end
+      @jobs = @jobs.tagged_with(params[:tag]) if params[:tag]
+      @jobs = @jobs.search(params[:search]).order("created_at DESC") if params[:search]
+      @category_id = Category.find_by(name: params[:category].to_s)
+      @jobs = Job.where(category_id: @category_id).order("created_at DESC") if   params[:category]
   end
-
   def new
-    @categories = Category.all
   end
 
   def show

@@ -8,10 +8,14 @@
             <h1 class="text-black inline">Jobs Matching My Skills</h1>
           </div>
           <div class="input-group padding-10 transparent col-md-5 b-b b-grey center-margin">
-            <input type="text" class="form-control no-border" placeholder="Search widget market: Finance, Charts, Weather etc" id="widget-filter" name="widget-filter">
-<span class="input-group-addon no-border">
-<i class="pg-search"></i>
-</span>
+
+            <%= form_tag(jobs_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+                <%= text_field_tag :search, params[:search], class: "form-control no-border", placeholder: "Search Articles" ,id:'widget-filter' do %>
+               <span class="input-group-addon no-border" type="submit" >
+                <i class="pg-search"></i>
+                </span>
+                <%end%>
+                <%end%>
           </div>
           <div class="m-t-20 m-b-40 ">
             <p class="small hint-text">Only for purchased customers. See <a href="#">Terms &amp; Conditions</a>
@@ -37,14 +41,10 @@
           <div class="row">
             <div class="col-sm-10">
               <ul class="nav navbar-nav" data-filters="widgets">
-                <li><a href="#" class="all-caps font-montserrat fs-11" data-filter="all">All</a>
+               <%categories.each do |cat|%>
+                <li><%= link_to cat.name, jobs_path(category: cat.name), class:'all-caps font-montserrat fs-11'%>
                 </li>
-                <li><a href="#" class="all-caps font-montserrat fs-11" data-filter="all">All</a>
-                </li>
-                <li><a href="#" class="all-caps font-montserrat fs-11" data-filter="all">All</a>
-                </li>
-                <li><a href="#" class="all-caps font-montserrat fs-11" data-filter="all">All</a>
-                </li>
+                <%end%>
               </ul>
             </div>
             <div class="col-sm-2">

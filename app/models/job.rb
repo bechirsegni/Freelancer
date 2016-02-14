@@ -9,6 +9,14 @@ class Job < ApplicationRecord
   has_many :taggings , :dependent => :destroy
   has_many :tags, through: :taggings , :dependent => :destroy
 
+  def self.search(query)
+    if query
+      where(['title LIKE ?', "%#{query}%"])
+    else
+      all
+    end
+  end
+
   def self.tagged_with(name)
     Tag.find_by_name!(name).jobs
   end

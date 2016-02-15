@@ -1,13 +1,18 @@
 class ShowcasesController < ApplicationController
-  before_filter :set_showcase ,only:[:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
-  before_filter :correct_user, only: [:edit, :update, :destroy]
+  before_action :set_showcase ,only:[:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
     @showcases = Showcase.all
   end
 
   def show
+    @showcases = Showcase.all
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new

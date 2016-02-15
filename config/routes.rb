@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
   resources :jobs  do
+    match 'worker', to: 'jobs#worker', via:[:put, :patch]
     resources :bids
   end
   resources :showcases
   resources :articles
   resources :categories
-  match 'worker', to: 'jobs#worker', via:[:post,:get]
   get 'tags/:tag', to: 'jobs#index', as: :tag
   get 'projects',  to: 'static#myprojects'
   get 'get_subscategories' ,to: 'categories#get_subscategories'

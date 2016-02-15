@@ -1,8 +1,8 @@
 class JobsController < ApplicationController
-  before_filter :set_job ,only:[:show, :edit, :update, :destroy,:worker]
-  before_filter :authenticate_user!
-  before_filter :set_cat ,only:[:new, :edit, :update, :destroy,:create]
-  before_filter :correct_user, only: [:edit, :update, :destroy]
+  before_action :set_job ,only:[:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :set_cat ,only:[:new, :edit, :update, :destroy,:create]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
       @jobs = Job.all
@@ -11,6 +11,7 @@ class JobsController < ApplicationController
       @category_id = Category.find_by(name: params[:category].to_s)
       @jobs = Job.where(category_id: @category_id).order("created_at DESC") if   params[:category]
   end
+
   def new
   end
 
@@ -29,10 +30,17 @@ class JobsController < ApplicationController
   def edit
 
   end
+
   def worker
-    @job.update_attribute(worker: @bid.user)
-    @job.save
+    @job = Job.find params[:job_id]
+    @bid = Bid.find params[:bid_id]
+    if @job.worker.nil?
+      redirect_to projects_path if @job.update_attributes worker: @bid.user.id
+    else
+      redirect_to projects_path , notice: "#{@bid.user.name} assigned on this project"
+    end
   end
+
   def update
     if @job.update(jobs_params)
       redirect_to job_path , notice: "Job Successfully Modified"

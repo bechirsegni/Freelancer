@@ -229,7 +229,11 @@
                                   </button>
                                   <ul style="width: 169px;" class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop1">
                                     <li><a href="#">Dropdown link</a>
-                                    </li>
+                                      <%= button_to 'Assign To Project',
+                                                    job_worker_path(job, bid),
+                                                    method: :put,
+                                                    params: { bid_id: bid.id }
+                                      %>
                                     <li><a href="#">Dropdown link</a>
                                     </li>
                                   </ul>

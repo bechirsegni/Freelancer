@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_filter :set_category ,only:[:edit, :update, :destroy]
+  before_action :set_category ,only:[:edit, :update, :destroy]
 
   def index
     @categories = Category.where("parent_id IS NULL")

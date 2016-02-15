@@ -18,7 +18,7 @@ gem 'mailboxer'
 gem 'will_paginate'
 gem 'awesome_nested_set'
 group :development, :test do
-  gem 'byebug'
+  gem 'byebug', '~> 8.2', '>= 8.2.2'
 end
 group :development do
   gem 'web-console', '~> 3.0'

@@ -17,6 +17,9 @@ gem 'omniauth-linkedin', '~> 0.2.0'
 gem 'mailboxer'
 gem 'will_paginate'
 gem 'awesome_nested_set'
+
+gem 'elasticsearch-rails'
+gem 'elasticsearch-model'
 group :development, :test do
   gem 'byebug', '~> 8.2', '>= 8.2.2'
 end

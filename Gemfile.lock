@@ -102,6 +102,19 @@ GEM
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.0)
     debug_inspector (0.0.2)
+    elasticsearch (1.0.15)
+      elasticsearch-api (= 1.0.15)
+      elasticsearch-transport (= 1.0.15)
+    elasticsearch-api (1.0.15)
+      multi_json
+    elasticsearch-model (0.1.8)
+      activesupport (> 3)
+      elasticsearch (> 0.4)
+      hashie
+    elasticsearch-rails (0.1.8)
+    elasticsearch-transport (1.0.15)
+      faraday
+      multi_json
     em-hiredis (0.3.1)
       eventmachine (~> 1.0)
       hiredis (~> 0.6.0)
@@ -260,6 +273,8 @@ DEPENDENCIES
   byebug (~> 8.2, >= 8.2.2)
   coffee-rails (~> 4.1.0)
   devise!
+  elasticsearch-model
+  elasticsearch-rails
   font-awesome-sass-rails
   jbuilder (~> 2.0)
   jquery-rails

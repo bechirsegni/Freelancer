@@ -1,10 +1,9 @@
 <%= provide(:title,'My Projects')%>
 
-<div class="content">
+<div class="content" style="margin-top: -16px;">
   <div class="jumbotron" data-pages="parallax">
     <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
       <div class="inner">
-
         <ul class="breadcrumb">
           <li>
             <a href="#">Forms</a>
@@ -12,19 +11,15 @@
           <li><a href="#" class="active">Form Elements</a>
           </li>
         </ul>
-
         <div class="row">
           <div class="col-lg-7 col-md-6 ">
-
             <div class="panel panel-default">
               <div class="panel-body text-center">
                 <img class="image-responsive-height demo-mw-600" src="assets/img/demo/form_hero.gif" alt="">
               </div>
             </div>
-
           </div>
           <div class="col-lg-5 col-md-6 ">
-
             <div class="panel panel-transparent">
               <div class="panel-heading">
                 <div class="panel-title">Getting started
@@ -63,16 +58,18 @@
         </div>
         <div class="panel">
           <ul class="nav nav-tabs nav-tabs-simple hidden-xs" role="tablist" data-init-reponsive-tabs="collapse">
-            <li class="active"><a aria-expanded="true" href="#tab2hellowWorld" data-toggle="tab" role="tab">Active Bids</a>
+            <li class=""><a aria-expanded="true" href="#tab2hellowWorld" data-toggle="tab" role="tab">Active Bids</a>
             </li>
-            <li class=""><a aria-expanded="false" href="#tab2FollowUs" data-toggle="tab" role="tab">Active Projects</a>
+            <li class="active"><a aria-expanded="false" href="#tab2FollowUs" data-toggle="tab" role="tab">Active Projects</a>
             </li>
             <li class=""><a aria-expanded="false" href="#tab2Inspire" data-toggle="tab" role="tab">Bids on My Projects</a>
+            </li>
+            <li class=""><a aria-expanded="false" href="#tab2Inspire" data-toggle="tab" role="tab">Projects in Progress</a>
             </li>
           </ul>
           <div class="panel-group visible-xs" id="ns1Q4-accordion"></div>
           <div class="tab-content hidden-xs">
-            <div class="tab-pane active" id="tab2hellowWorld">
+            <div class="tab-pane" id="tab2hellowWorld">
               <div class="row column-seperation">
                 <div class="col-md-12">
                   <div class="dataTables_wrapper form-inline no-footer" id="tableWithDynamicRows_wrapper">
@@ -131,7 +128,7 @@
                 </div>
               </div>
             </div>
-            <div class="tab-pane" id="tab2FollowUs">
+            <div class="tab-pane  active" id="tab2FollowUs">
               <div class="row">
                 <div class="col-md-12">
                   <div class="dataTables_wrapper form-inline no-footer" id="tableWithDynamicRows_wrapper">
@@ -241,6 +238,65 @@
                               </td>
                             </tr>
                         <%end%>
+                        <%end%>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="inProgress">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="dataTables_wrapper form-inline no-footer" id="tableWithDynamicRows_wrapper">
+                    <div class="table-responsive">
+                      <table aria-describedby="tableWithDynamicRows_info" role="grid" class="table table-hover demo-table-dynamic dataTable no-footer" id="tableWithDynamicRows">
+                        <thead>
+                        <tr role="row">
+                          <th aria-label="App name: activate to sort column descending" aria-sort="ascending" colspan="1" rowspan="1" aria-controls="tableWithDynamicRows" tabindex="0" class="sorting_asc">Project Name</th>
+                          <th aria-label="Description: activate to sort column ascending" style="width: 297px;" colspan="1" rowspan="1" aria-controls="tableWithDynamicRows" tabindex="0" class="sorting">Freelancer Name</th>
+                          <th aria-label="Price: activate to sort column ascending" style="width: 185px;" colspan="1" rowspan="1" aria-controls="tableWithDynamicRows" tabindex="0" class="sorting">Price</th>
+                          <th aria-label="Notes: activate to sort column ascending" style="width: 241px;" colspan="1" rowspan="1" aria-controls="tableWithDynamicRows" tabindex="0" class="sorting">Time To Finish</th>
+                          <th aria-label="Notes: activate to sort column ascending" style="width: 241px;" colspan="1" rowspan="1" aria-controls="tableWithDynamicRows" tabindex="0" class="sorting">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <%@jobs.each do |job|%>
+                            <%job.bids.each do |bid|%>
+                                <tr class="odd" role="row">
+                                  <td class="v-align-middle sorting_1">
+                                    <p><%=link_to job.title, job%></p>
+                                  </td>
+                                  <td class="v-align-middle">
+                                    <p><%= job.user(params[id: job.worker]).name%></p>
+                                  </td>
+                                  <td class="v-align-middle">
+                                    <p><%=bid.price%></p>
+                                  </td>
+                                  <td class="v-align-middle">
+                                    <p><%=bid.proposal%></p>
+                                  </td>
+                                  <td class="v-align-middle">
+                                    <div class="btn-group dropdown-default">
+                                      <button style="width: 169px;" id="btnGroupVerticalDrop1" type="button" class="btn btn-default dropdown-toggle text-center" data-toggle="dropdown">
+                                        Fonts
+                                        <span class="caret"></span>
+                                      </button>
+                                      <ul style="width: 169px;" class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop1">
+                                        <li><a href="#">Dropdown link</a>
+                                          <%= button_to 'Assign To Project',
+                                                        job_worker_path(job, bid),
+                                                        method: :put,
+                                                        params: { bid_id: bid.id }
+                                          %>
+                                        <li><a href="#">Dropdown link</a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </td>
+                                </tr>
+                            <%end%>
                         <%end%>
                         </tbody>
                       </table>

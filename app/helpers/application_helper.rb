@@ -18,7 +18,7 @@ module ApplicationHelper
   end
 
   def notification
-    @jobs = Job.all
+    @jobs = Job.all.includes(:user)
   end
 
 end

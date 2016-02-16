@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :jobs  do
+    get 'search/*query', to: 'jobs#index', as: :search, on: :collection
     match 'worker', to: 'jobs#worker', via:[:put, :patch]
     resources :bids
   end

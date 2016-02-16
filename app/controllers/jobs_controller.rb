@@ -3,13 +3,12 @@ class JobsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_cat ,only:[:new, :edit, :update, :destroy,:create]
   before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :beautify_search_url, only: [:index]
+
 
   def index
-      @jobs = Job.all
-      @jobs = @jobs.tagged_with(params[:tag]) if params[:tag]
-      @jobs = @jobs.search(params[:search]).order("created_at DESC") if params[:search]
-      @category_id = Category.find_by(name: params[:category].to_s)
-      @jobs = Job.where(category_id: @category_id).order("created_at DESC") if   params[:category]
+    query = params[:query].presence || "*"
+    @jobs = Job.search(query).results
   end
 
   def new
@@ -74,5 +73,9 @@ class JobsController < ApplicationController
   def correct_user
     @job = current_user.jobs.find_by_id(params[:id])
     redirect_to jobs_path, notice: "Not authorized to edit this job" if @job.nil?
+  end
+
+  def beautify_search_url
+    redirect_to search_jobs_path(query: params[:q]) if params[:q].present?
   end
 end

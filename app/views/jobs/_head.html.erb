@@ -10,7 +10,7 @@
           <div class="input-group padding-10 transparent col-md-5 b-b b-grey center-margin">
 
             <%= form_tag(jobs_path, :method => "get", class: "navbar-form", id: "search-form") do %>
-                <%= text_field_tag :search, params[:search], class: "form-control no-border", placeholder: "Search Articles" ,id:'widget-filter' do %>
+                <%= text_field_tag :q, params[:q], class: "form-control no-border", placeholder: "Search Articles" ,id:'widget-filter' do %>
                <span class="input-group-addon no-border" type="submit" >
                 <i class="pg-search"></i>
                 </span>

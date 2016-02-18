@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.3.0'
 gem 'rails', '>= 5.0.0.beta1', '< 5.1'
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'uglifier', '>= 1.3.0'
@@ -22,6 +22,11 @@ gem 'elasticsearch-rails'
 gem 'elasticsearch-model'
 group :development, :test do
   gem 'byebug', '~> 8.2', '>= 8.2.2'
+end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
 end
 group :development do
   gem 'web-console', '~> 3.0'

@@ -6,7 +6,6 @@ class Job < ApplicationRecord
   has_attached_file :document
   validates_attachment :document, content_type: { content_type: "application/pdf" }
 
-
   belongs_to :category
   belongs_to :user
   has_many   :bids ,   :dependent => :destroy
@@ -33,7 +32,7 @@ class Job < ApplicationRecord
       indexes :id,   type: 'integer'
       indexes :name, type: 'string', index: :not_analyzed
     end
-end
+  end
 
 #title, description , price, duration, location, category_id, document, tag_list, worker
   def as_indexed_json(options = {})
@@ -47,8 +46,9 @@ end
 
 
   class << self
-    def custom_search(query)
-      __elasticsearch__.search(query: multi_match_query(query))
+    def custom_search(query_segment)
+      keyword = query_segment["keyword"]
+      __elasticsearch__.search(query: multi_match_query(query_segment["keyword"]), aggs: aggregations)
     end
 
     def multi_match_query(query)
@@ -61,6 +61,26 @@ end
           }
       }
     end
+
+
+    def aggregations
+      {
+          category_aggregation:
+              {
+                  nested: { path: "categories" },
+                  aggs: category_aggregation
+              }
+      }
+    end
+
+    def category_aggregation
+      { id_and_name:
+            {
+                terms: { script: "doc['categories.id'].value + '|' + doc['categories.name'].value", size: 30 }
+            }
+      }
+    end
+
   end
 
 
@@ -71,11 +91,11 @@ end
   end
 
   def add_many(type, data)
-    if type.in? %w'category', 'bid', 'tags', 'user'
+    if type.in? %w'category', 'bids', 'tags', 'user'
       # movie.genres = [data]
       self.send("#{type.downcase.pluralize}=", data.map do |g|
-     type.classify.constantize.where(name: g).first_or_create!
-    end)
+       type.classify.constantize.where(name: g).first_or_create!
+     end)
     else
       raise RelationError
     end

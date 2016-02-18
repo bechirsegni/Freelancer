@@ -7,8 +7,11 @@ class JobsController < ApplicationController
 
 
   def index
-    query = params[:query].presence || "*"
-    @jobs = Job.search(query).results
+    search  = Job.custom_search((params[:query].present? ? params[:query] : '*'))
+    @aggs   = search.response.aggregations.map do |a|
+      AggregationPresenter.new(a)
+    end
+    @jobs = search.results
   end
 
   def new
@@ -76,6 +79,18 @@ class JobsController < ApplicationController
   end
 
   def beautify_search_url
-    redirect_to search_jobs_path(query: params[:q]) if params[:q].present?
+    redirect_to search_jobs_path(query: "keyword/#{params[:q]}") if params[:q].present?
   end
+
+  def query_segment
+    query.slice(*["categories", "keyword"]) rescue {}
+  end
+
+  helper_method :query_segment
+
+  def query
+    Hash[*params[:query].split(/\//)] rescue {}
+  end
+
+  helper_method :query
 end

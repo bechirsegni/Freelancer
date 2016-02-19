@@ -48,7 +48,5 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 development:
-  adapter: postgresql
-  host: localhost
-  username: user
-  database: app-dev
+  <<: *default
+  database: Freelancer_prouction

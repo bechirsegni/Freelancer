@@ -192,7 +192,6 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
-    pg (0.18.4)
     puma (2.16.0)
     rack (2.0.0.alpha)
       json
@@ -293,7 +292,6 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-linkedin (~> 0.2.0)
   paperclip (~> 4.3)
-  pg
   puma
   rails (>= 5.0.0.beta1, < 5.1)
   rails_12factor

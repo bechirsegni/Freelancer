@@ -47,6 +47,6 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-development:
+production:
   <<: *default
   database: Freelancer_prouction

@@ -13,6 +13,7 @@ class Job < ApplicationRecord
   has_many   :taggings , :dependent => :destroy
   has_many   :tags, through: :taggings , :dependent => :destroy
 
+
   mapping do
     indexes :id, index: :not_analyzed
     indexes :title
@@ -37,7 +38,7 @@ class Job < ApplicationRecord
 
 #title, description , price, duration, location, category_id, document, tag_list, worker
   def as_indexed_json(options = {})
-    self.as_json(only: [:id, :title, :description, :price, :location, :duration, :user],
+    self.as_json(only: [:id, :title, :description, :price, :location, :duration],
                  include: {
                      category:  { only: [:id, :name] },
                      tags: { only: [:id, :name], through: :taggings},

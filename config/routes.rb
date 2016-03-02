@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'get_subscategories' ,to: 'categories#get_subscategories'
   get 'get_newsubscategories' ,to: 'categories#get_subscategories'
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" , registrations: 'registrations'}
+  devise_for :users, :controllers => { :omniauth_callbacks => 'callbacks' , registrations: 'registrations'}
   devise_scope :user do
     get   'login',      :to => 'devise/sessions#new'
     post  'login',      :to => 'devise/sessions#new'
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     get   'freelancers',to: 'users#index'
 
     authenticated :user do
-      root 'static#dashboard', as: :authenticated_root
+      root 'jobs#index', as: :authenticated_root
     end
 
     unauthenticated do
